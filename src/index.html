@@ -8,17 +8,20 @@
     <link rel="shortcut icon" href="/favicon.png">
     <meta property="og:title" content="Connect to Max Schmitt" />
     <meta property="og:site_name" content="Max Schmitt" />
-    <meta property="og:description" content="Open Source enthusiast, security researcher and full stack web developer." />
+    <meta property="og:description"
+        content="Open Source enthusiast, security researcher and full stack web developer." />
     <meta property="og:image" content="images/profile.jpg" />
     <meta name="description" content="Open Source enthusiast, security researcher and full stack web developer." />
     <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
     <style>
         body {
             background: linear-gradient(0deg, #36D1DC, #5B86E5);
-            height: 100vh;
             font-family: 'Open Sans', sans-serif;
             margin: 0;
             color: white;
+            display: flex;
+            min-height: 100vh;
+            flex-direction: column;
         }
 
         a {
@@ -28,6 +31,7 @@
         .container {
             text-align: center;
             padding: 20px;
+            flex: 1;
         }
 
         img.profile {
@@ -56,16 +60,13 @@
             padding-bottom: 20px
         }
 
-        .footer {
-            position: absolute;
-            bottom: 0;
-            left: 0;
+        footer {
             text-align: center;
             width: 100%;
             padding-bottom: 5px;
         }
 
-        .footer>a {
+        footer>a {
             text-decoration: none;
         }
 
@@ -79,6 +80,7 @@
                 margin-left: auto;
                 margin-right: auto;
             }
+
             body {
                 display: flex;
                 justify-content: center;
@@ -107,12 +109,12 @@
         <a href="https://twitter.com/maxibanki" class="button">Twitter</a>
         <a href="https://github.com/mxschmitt" class="button">GitHub</a>
         <a href="mailto:max@schmitt.mx" class="button">E-Mail</a>
-        <div class="footer">
-            <a href="https://github.com/mxschmitt/connect-to-me">
-                View source on GitHub
-            </a>
-        </div>
     </div>
+    <footer>
+        <a href="https://github.com/mxschmitt/connect-to-me">
+            View source on GitHub
+        </a>
+    </footer>
 </body>
 
 </html>
