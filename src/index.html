@@ -14,7 +14,7 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
     <style>
         body {
-            background: linear-gradient(0deg, #283c86, #45a247);
+            background: linear-gradient(0deg, #36D1DC, #5B86E5);
             height: 100vh;
             font-family: 'Open Sans', sans-serif;
             margin: 0;
@@ -46,13 +46,13 @@
         }
 
         a.button:hover {
-            color: #283c86;
+            color: #5B86E5;
             background-color: white;
         }
 
         h1.name {
             margin: 0;
-            padding: 20px;
+            padding-bottom: 20px
         }
 
         .footer {
@@ -78,9 +78,17 @@
                 margin-left: auto;
                 margin-right: auto;
             }
+            body {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
         }
 
         @media (max-width: 767px) {
+            h1.name {
+                padding-top: 20px
+            }
             a.button {
                 margin: 20px
             }
