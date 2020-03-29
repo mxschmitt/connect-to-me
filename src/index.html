@@ -31,6 +31,9 @@
         .container {
             text-align: center;
             padding: 20px;
+        }
+
+        .container-wrapper {
             flex: 1;
         }
 
@@ -81,7 +84,7 @@
                 margin-right: auto;
             }
 
-            body {
+            .container-wrapper {
                 display: flex;
                 justify-content: center;
                 align-items: center;
@@ -97,18 +100,20 @@
 </head>
 
 <body>
-    <div class="container">
-        <h1 class="name">Max Schmitt</h1>
-        <div>
-            <img class="profile" src="images/profile.jpg" alt="Max Schmitt">
+    <div class="container-wrapper">
+        <div class="container">
+            <h1 class="name">Max Schmitt</h1>
+            <div>
+                <img class="profile" src="images/profile.jpg" alt="Max Schmitt">
+            </div>
+            <div class="slogan">
+                Open Source enthusiast, security researcher and full stack web developer.
+            </div>
+            <a href="https://www.linkedin.com/in/max-schmitt/" class="button">LinkedIn</a>
+            <a href="https://twitter.com/maxibanki" class="button">Twitter</a>
+            <a href="https://github.com/mxschmitt" class="button">GitHub</a>
+            <a href="mailto:max@schmitt.mx" class="button">E-Mail</a>
         </div>
-        <div class="slogan">
-            Open Source enthusiast, security researcher and full stack web developer.
-        </div>
-        <a href="https://www.linkedin.com/in/max-schmitt/" class="button">LinkedIn</a>
-        <a href="https://twitter.com/maxibanki" class="button">Twitter</a>
-        <a href="https://github.com/mxschmitt" class="button">GitHub</a>
-        <a href="mailto:max@schmitt.mx" class="button">E-Mail</a>
     </div>
     <footer>
         <a href="https://github.com/mxschmitt/connect-to-me">
