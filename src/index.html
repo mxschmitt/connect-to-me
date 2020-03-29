@@ -5,13 +5,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Max Schmitt</title>
+    <meta property="og:title" content="Connect to Max Schmitt" />
+    <meta property="og:site_name" content="Max Schmitt" />
+    <meta property="og:description"
+        content="Connect to Max: a technology enthusiast, security researcher and full stack web developer." />
+    <meta property="og:image" content="images/profile.jpg" />
+    <meta name="description"
+        content="Connect to Max: a technology enthusiast, security researcher and full stack web developer." />
     <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
     <style>
         body {
-            background: linear-gradient(0deg, #fd8f67, #d463a3);
+            background: linear-gradient(0deg, #283c86, #45a247);
             height: 100vh;
             font-family: 'Open Sans', sans-serif;
             margin: 0;
+            color: white;
+        }
+
+        a {
+            color: white;
         }
 
         .container {
@@ -22,7 +34,6 @@
             width: 96px;
             height: 96px;
             border-radius: 50%;
-            margin-bottom: 10px;
         }
 
         a.button {
@@ -33,18 +44,16 @@
             padding: 10px;
             text-decoration: none;
             border: 2px solid white;
-            color: white;
         }
 
         a.button:hover {
-            color: #d463a3;
+            color: #283c86;
             background-color: white;
         }
 
         h1.name {
             margin: 0;
             padding: 20px;
-            color: white;
         }
 
         .footer {
@@ -57,8 +66,11 @@
         }
 
         .footer>a {
-            color: white;
             text-decoration: none;
+        }
+
+        div.slogan {
+            padding-top: 20px;
         }
 
         @media (min-width: 768px) {
@@ -82,6 +94,9 @@
         <h1 class="name">Max Schmitt</h1>
         <div>
             <img class="profile" src="images/profile.jpg" alt="Max Schmitt">
+        </div>
+        <div class="slogan">
+            Technology enthusiast, security researcher and full stack web developer.
         </div>
         <a href="https://www.linkedin.com/in/max-schmitt/" class="button">LinkedIn</a>
         <a href="https://twitter.com/maxibanki" class="button">Twitter</a>
