@@ -134,7 +134,7 @@
             element.addEventListener("click", function (ev) {
                 ev.preventDefault()
                 const url = element.href
-                if (gtag) {
+                if (window.ga) {
                     gtag('event', 'click', {
                         'event_category': 'outbound',
                         'event_label': url,
