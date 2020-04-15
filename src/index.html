@@ -97,6 +97,8 @@
             }
         }
     </style>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-34156117-12"></script>
 </head>
 
 <body>
@@ -120,6 +122,31 @@
             View source on GitHub
         </a>
     </footer>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-34156117-12');
+
+        Array.from(document.getElementsByTagName("a")).forEach(function (el) {
+            el.addEventListener("click", function () {
+                var url = el.href
+                if (gtag) {
+                    gtag('event', 'click', {
+                        'event_category': 'outbound',
+                        'event_label': url,
+                        'transport_type': 'beacon',
+                        'event_callback': function () {
+                            document.location.href = url;
+                        }
+                    });
+                } else {
+                    document.location.href = url;
+                }
+            })
+        })
+    </script>
 </body>
 
 </html>
