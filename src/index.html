@@ -127,27 +127,6 @@
         function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
         gtag('config', 'UA-34156117-12');
-
-        const elements = document.getElementsByTagName("a")
-        for (let i = 0; i < elements.length; i++) {
-            const element = elements[i]
-            element.addEventListener("click", function (ev) {
-                ev.preventDefault()
-                const url = element.href
-                if (window.ga) {
-                    gtag('event', 'click', {
-                        'event_category': 'outbound',
-                        'event_label': url,
-                        'transport_type': 'beacon',
-                        'event_callback': function () {
-                            document.location.href = url;
-                        }
-                    });
-                } else {
-                    document.location.href = url;
-                }
-            })
-        }
     </script>
 </body>
 
