@@ -35,12 +35,21 @@
             color: var(--text-color);
             line-height: 1.6;
             -webkit-font-smoothing: antialiased;
+            overflow-x: hidden; /* Prevent horizontal scroll */
         }
 
         .container {
             max-width: 1000px;
+            width: 100%; /* Ensure full width usage */
             margin: 0 auto;
-            padding: 0 2rem;
+            padding: 0 1rem; /* Reduced padding for mobile */
+        }
+
+        /* Responsive padding */
+        @media (min-width: 768px) {
+            .container {
+                padding: 0 2rem;
+            }
         }
 
         .hero {
@@ -64,54 +73,80 @@
         .profile-header {
             display: flex;
             align-items: center;
-            gap: 2.5rem;
+            gap: 1.5rem; /* Reduced gap for mobile */
             margin-bottom: 2.5rem;
+            width: 100%; /* Ensure full width */
         }
+        
+        @media (min-width: 768px) {
+            .profile-header {
+                gap: 2.5rem;
+            }
+        }
+
         .profile-header-img {
             flex-shrink: 0;
         }
         .profile-header-content {
             flex: 1;
+            min-width: 0; /* Allow flex item to shrink below content size */
         }
         .profile {
-            width: 120px;
-            height: 120px;
+            width: 100px;
+            height: 100px;
             border-radius: 50%;
             border: 2px solid var(--accent-color);
             margin-bottom: 0;
             margin-top: 0;
         }
+        
+        @media (min-width: 768px) {
+            .profile {
+                width: 120px;
+                height: 120px;
+            }
+        }
+
         .name {
-            font-size: 2.5rem;
+            font-size: 1.8rem;
             font-weight: 600;
             margin-bottom: 0.5rem;
             background: linear-gradient(to right, #fff, #a3a3a3);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            word-break: break-word; /* Prevent name from overflowing */
         }
+        
+        @media (min-width: 768px) {
+            .name {
+                font-size: 2.5rem;
+            }
+        }
+
         .title {
-            font-size: 1.1rem;
+            font-size: 1rem;
             color: var(--secondary-color);
             margin-bottom: 1.2rem;
         }
+        
+        @media (min-width: 768px) {
+            .title {
+                font-size: 1.1rem;
+            }
+        }
+
         .about-text {
             margin-bottom: 1.2rem;
+            word-wrap: break-word; /* Ensure text wraps properly */
         }
         .social-links {
             margin-bottom: 0;
         }
-        @media (max-width: 768px) {
+        @media (max-width: 767px) {
             .profile-header {
                 flex-direction: column;
                 align-items: flex-start;
                 gap: 1.2rem;
-            }
-            .profile {
-                width: 100px;
-                height: 100px;
-            }
-            .name {
-                font-size: 2rem;
             }
         }
 
@@ -120,11 +155,17 @@
         }
 
         .section-title {
-            font-size: 2rem;
+            font-size: 1.5rem;
             font-weight: 600;
             margin-bottom: 2rem;
             display: inline-block;
             position: relative;
+        }
+        
+        @media (min-width: 768px) {
+            .section-title {
+                font-size: 2rem;
+            }
         }
 
         .section-title::after {
@@ -140,17 +181,32 @@
 
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
             margin-top: 2rem;
+        }
+        
+        /* Responsive grid */
+        @media (min-width: 768px) {
+            .grid {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                gap: 2rem;
+            }
         }
 
         .card {
             background: var(--card-bg);
             border: 1px solid var(--card-border);
             border-radius: 12px;
-            padding: 2rem;
+            padding: 1.5rem;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            word-wrap: break-word; /* Ensure card content doesn't overflow */
+        }
+        
+        @media (min-width: 768px) {
+            .card {
+                padding: 2rem;
+            }
         }
 
         .card:hover {
@@ -159,9 +215,16 @@
         }
 
         .card h3 {
-            font-size: 1.25rem;
+            font-size: 1.1rem;
             margin-bottom: 1rem;
             color: var(--accent-color);
+            word-wrap: break-word;
+        }
+        
+        @media (min-width: 768px) {
+            .card h3 {
+                font-size: 1.25rem;
+            }
         }
 
         .card h3 a {
@@ -177,26 +240,50 @@
 
         .card p {
             color: var(--secondary-color);
-            font-size: 0.95rem;
+            font-size: 0.9rem;
+            word-wrap: break-word;
+        }
+        
+        @media (min-width: 768px) {
+            .card p {
+                font-size: 0.95rem;
+            }
         }
 
         .social-links {
             display: flex;
-            gap: 1rem;
-            margin-top: 3rem;
+            flex-wrap: wrap; /* Allow wrapping on small screens */
+            gap: 0.75rem;
+            margin-top: 2rem;
+        }
+        
+        @media (min-width: 768px) {
+            .social-links {
+                gap: 1rem;
+                margin-top: 3rem;
+            }
         }
 
         .social-link {
             color: var(--text-color);
             text-decoration: none;
-            padding: 0.75rem 1.5rem;
+            padding: 0.6rem 1rem;
             border: 1px solid var(--card-border);
             border-radius: 8px;
             transition: all 0.3s ease;
-            font-size: 0.95rem;
+            font-size: 0.85rem;
             display: flex;
             align-items: center;
-            gap: 0.6em;
+            gap: 0.5em;
+            white-space: nowrap; /* Prevent text wrapping inside buttons */
+        }
+        
+        @media (min-width: 768px) {
+            .social-link {
+                padding: 0.75rem 1.5rem;
+                font-size: 0.95rem;
+                gap: 0.6em;
+            }
         }
 
         .social-link:hover {
@@ -206,15 +293,17 @@
             transform: translateY(-2px);
         }
 
-        .social-link:hover svg path {
-            fill: #fff !important;
-        }
-
         footer {
             text-align: center;
-            padding: 3rem 0;
+            padding: 2rem 0;
             color: var(--secondary-color);
             font-size: 0.9rem;
+        }
+        
+        @media (min-width: 768px) {
+            footer {
+                padding: 3rem 0;
+            }
         }
 
         footer a {
@@ -230,6 +319,7 @@
             color: var(--accent-color);
             text-decoration: none;
             transition: color 0.2s;
+            word-wrap: break-word;
         }
 
         a:hover {
@@ -256,19 +346,19 @@
                     </div>
                     <div class="social-links">
                         <a href="https://github.com/mxschmitt" class="social-link" target="_blank" rel="noopener noreferrer">
-                          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.387.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.415-4.042-1.415-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.084-.729.084-.729 1.205.084 1.84 1.236 1.84 1.236 1.07 1.834 2.809 1.304 3.495.997.108-.775.418-1.305.762-1.605-2.665-.305-5.466-1.334-5.466-5.931 0-1.31.469-2.381 1.236-3.221-.124-.303-.535-1.523.117-3.176 0 0 1.008-.322 3.301 1.23a11.52 11.52 0 0 1 3.003-.404c1.018.005 2.045.138 3.003.404 2.291-1.553 3.297-1.23 3.297-1.23.653 1.653.242 2.873.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.803 5.624-5.475 5.921.43.372.823 1.102.823 2.222 0 1.606-.014 2.898-.014 3.293 0 .322.216.694.825.576C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" fill="#7aa2f7"/></svg>
+                          <svg width="20" height="20" viewBox="0 0 98 96" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M48.854 0C21.839 0 0 22 0 49.217c0 21.756 13.993 40.172 33.405 46.69 2.427.49 3.316-1.059 3.316-2.362 0-1.141-.08-5.052-.08-9.127-13.59 2.934-16.42-5.867-16.42-5.867-2.184-5.704-5.42-7.17-5.42-7.17-4.448-3.015.324-3.015.324-3.015 4.934.326 7.523 5.052 7.523 5.052 4.367 7.496 11.404 5.378 14.235 4.074.404-3.178 1.699-5.378 3.074-6.6-10.839-1.141-22.243-5.378-22.243-24.283 0-5.378 1.94-9.778 5.014-13.2-.485-1.222-2.184-6.275.486-13.038 0 0 4.125-1.304 13.426 5.052a46.97 46.97 0 0 1 12.214-1.63c4.125 0 8.33.571 12.213 1.63 9.302-6.356 13.427-5.052 13.427-5.052 2.67 6.763.97 11.816.485 13.038 3.155 3.422 5.015 7.822 5.015 13.2 0 18.905-11.404 23.06-22.324 24.283 1.78 1.548 3.316 4.481 3.316 9.126 0 6.6-.08 11.897-.08 13.526 0 1.304.89 2.853 3.316 2.364 19.412-6.52 33.405-24.935 33.405-46.691C97.707 22 75.788 0 48.854 0z" fill="#fff"/></svg>
                           GitHub
                         </a>
                         <a href="https://www.linkedin.com/in/max-schmitt/" class="social-link" target="_blank" rel="noopener noreferrer">
-                          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.761 0 5-2.239 5-5v-14c0-2.761-2.239-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.268c-.966 0-1.75-.784-1.75-1.75s.784-1.75 1.75-1.75 1.75.784 1.75 1.75-.784 1.75-1.75 1.75zm15.5 11.268h-3v-5.604c0-1.337-.026-3.063-1.868-3.063-1.868 0-2.154 1.459-2.154 2.967v5.7h-3v-10h2.881v1.367h.041c.401-.761 1.379-1.563 2.841-1.563 3.039 0 3.6 2.001 3.6 4.601v5.595z" fill="#7aa2f7"/></svg>
+                          <svg height="20" width="20" viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><path d="M8,72 L64,72 C68.418278,72 72,68.418278 72,64 L72,8 C72,3.581722 68.418278,-8.11624501e-16 64,0 L8,0 C3.581722,8.11624501e-16 -5.41083001e-16,3.581722 0,8 L0,64 C5.41083001e-16,68.418278 3.581722,72 8,72 Z" fill="#007EBB"/><path d="M62,62 L51.315625,62 L51.315625,43.8021149 C51.315625,38.8127542 49.4197917,36.0245323 45.4707031,36.0245323 C41.1746094,36.0245323 38.9300781,38.9261103 38.9300781,43.8021149 L38.9300781,62 L28.6333333,62 L28.6333333,27.3333333 L38.9300781,27.3333333 L38.9300781,32.0029283 C38.9300781,32.0029283 42.0260417,26.2742151 49.3825521,26.2742151 C56.7356771,26.2742151 62,30.7644705 62,40.051212 L62,62 Z M16.349349,22.7940133 C12.8420573,22.7940133 10,19.9296567 10,16.3970067 C10,12.8643566 12.8420573,10 16.349349,10 C19.8566406,10 22.6970052,12.8643566 22.6970052,16.3970067 C22.6970052,19.9296567 19.8566406,22.7940133 16.349349,22.7940133 Z M11.0325521,62 L21.769401,62 L21.769401,27.3333333 L11.0325521,27.3333333 L11.0325521,62 Z" fill="#FFF"/></g></svg>
                           LinkedIn
                         </a>
-                        <a href="https://twitter.com/mx_schmitt" class="social-link" target="_blank" rel="noopener noreferrer">
-                          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M24 4.557a9.93 9.93 0 0 1-2.828.775 4.932 4.932 0 0 0 2.165-2.724c-.951.564-2.005.974-3.127 1.195a4.92 4.92 0 0 0-8.384 4.482c-4.086-.205-7.713-2.164-10.141-5.144a4.822 4.822 0 0 0-.664 2.475c0 1.708.87 3.216 2.188 4.099a4.904 4.904 0 0 1-2.229-.616c-.054 2.281 1.581 4.415 3.949 4.89a4.936 4.936 0 0 1-2.224.084c.627 1.956 2.444 3.377 4.6 3.417a9.867 9.867 0 0 1-6.102 2.104c-.396 0-.787-.023-1.175-.069a13.945 13.945 0 0 0 7.548 2.212c9.057 0 14.009-7.513 14.009-14.009 0-.213-.005-.425-.014-.636a10.012 10.012 0 0 0 2.457-2.548z" fill="#7aa2f7"/></svg>
+                        <a href="https://x.com/mx_schmitt" class="social-link" target="_blank" rel="noopener noreferrer">
+                          <svg width="20" height="20" viewBox="0 0 300 271" xmlns="http://www.w3.org/2000/svg"><path d="m236 0h46l-101 115 118 156h-92.6l-72.5-94.8-83 94.8h-46l107-123-113-148h94.9l65.5 86.6zm-16.1 244h25.5l-165-218h-27.4z" fill="#fff"/></svg>
                           Twitter
                         </a>
                         <a href="mailto:max@schmitt.mx" class="social-link" target="_blank" rel="noopener noreferrer">
-                          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 13.065L.8 6.2V18a2 2 0 0 0 2 2h18.4a2 2 0 0 0 2-2V6.2l-11.2 6.865zm10.4-9.065H1.6a2 2 0 0 0-1.6 1.6l12 7.36 12-7.36a2 2 0 0 0-1.6-1.6z" fill="#7aa2f7"/></svg>
+                          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M3.75 5.25L3 6V18L3.75 18.75H20.25L21 18V6L20.25 5.25H3.75ZM4.5 7.6955V17.25H19.5V7.69525L11.9999 14.5136L4.5 7.6955ZM18.3099 6.75H5.68986L11.9999 12.4864L18.3099 6.75Z" fill="#fff"/></svg>
                           Email
                         </a>
                     </div>
@@ -283,11 +373,15 @@
                         <p>3k stars on GitHub: Debug your GitHub Actions via SSH by using tmate to get access to the runner system itself.</p>
                     </div>
                     <div class="card">
+                        <h3><a href="https://github.com/microsoft/playwright-python" target="_blank" rel="noopener noreferrer">playwright-python</a></h3>
+                        <p>13k stars on GitHub, 11 million downloads per month: Python version of the Playwright testing and automation library.</p>
+                    </div>
+                    <div class="card">
                         <h3><a href="https://github.com/playwright-community/playwright-go" target="_blank" rel="noopener noreferrer">playwright-go</a></h3>
                         <p>2.7k stars on GitHub: Playwright for Go, a browser automation library to control Chromium, Firefox and WebKit with a single API.</p>
                     </div>
                     <div class="card">
-                        <h3><a href="https://github.com/mxschmitt/try-playwright" target="_blank" rel="noopener noreferrer">Try Playwright</a></h3>
+                        <h3><a href="https://try.playwright.tech" target="_blank" rel="noopener noreferrer">Try Playwright</a></h3>
                         <p>Try Playwright lets you execute and share Playwright scripts in your browser to get started with Playwright.</p>
                     </div>
                 </div>
