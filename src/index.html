@@ -4,154 +4,237 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>$ ssh max@schmitt.mx</title>
+    <title>Max Schmitt - Software Engineer</title>
     <link rel="shortcut icon" href="/favicon.png">
-    <meta property="og:title" content="$ ssh max@schmitt.mx" />
+    <meta property="og:title" content="Max Schmitt - Software Engineer" />
     <meta property="og:site_name" content="Max Schmitt" />
-    <meta property="og:description"
-        content="Open Source enthusiast, security researcher and full stack web developer." />
+    <meta property="og:description" content="Open Source enthusiast, security researcher and full stack web developer." />
     <meta property="og:image" content="images/profile.jpg" />
     <meta name="description" content="Open Source enthusiast, security researcher and full stack web developer." />
-    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-color: #000000;
-            --text-color: #00ff00;
-            --accent-color: #0066ff;
-            --hover-color: #003366;
+            --bg-color: #0a0a0a;
+            --text-color: #ffffff;
+            --accent-color: #7aa2f7;
+            --accent-hover: #3b82f6;
+            --secondary-color: #a3a3a3;
+            --card-bg: #1a1a1a;
+            --card-border: #262626;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
         body {
             background-color: var(--bg-color);
-            font-family: 'VT323', monospace;
-            margin: 0;
+            font-family: 'Space Grotesk', sans-serif;
             color: var(--text-color);
-            display: flex;
-            min-height: 100vh;
-            flex-direction: column;
-            overflow-x: hidden;
-        }
-
-        a {
-            color: var(--text-color);
-            text-decoration: none;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
         }
 
         .container {
-            text-align: left;
-            padding: 20px;
-            position: relative;
-            max-width: 800px;
+            max-width: 1000px;
             margin: 0 auto;
+            padding: 0 2rem;
         }
 
-        .container::before {
-            content: "";
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: repeating-linear-gradient(
-                0deg,
-                rgba(0, 255, 0, 0.15),
-                rgba(0, 255, 0, 0.15) 1px,
-                transparent 1px,
-                transparent 2px
-            );
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: flex-start;
+            position: relative;
+            overflow: hidden;
+            padding-top: 32px;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, rgba(59, 130, 246, 0.1) 0%, transparent 70%);
             pointer-events: none;
         }
 
-        .container-wrapper {
-            flex: 1;
+        .profile-header {
             display: flex;
-            justify-content: center;
             align-items: center;
+            gap: 2.5rem;
+            margin-bottom: 2.5rem;
         }
-
-        img.profile {
-            width: 128px;
-            height: 132.5px;
+        .profile-header-img {
+            flex-shrink: 0;
+        }
+        .profile-header-content {
+            flex: 1;
+        }
+        .profile {
+            width: 120px;
+            height: 120px;
             border-radius: 50%;
-            border: 2px solid var(--text-color);
-            box-shadow: 0 0 15px var(--text-color);
-            image-rendering: pixelated;
+            border: 2px solid var(--accent-color);
+            margin-bottom: 0;
+            margin-top: 0;
         }
-
-        a.button {
-            display: inline-block;
-            background-color: var(--bg-color);
-            margin: 10px 10px 10px 0;
-            font-size: 1.3rem;
-            padding: 5px 10px;
-            border: 2px solid var(--text-color);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        a.button:hover {
-            background-color: var(--text-color);
-            color: var(--bg-color);
-        }
-
-        h1.name {
-            margin: 0;
-            padding-bottom: 20px;
+        .name {
             font-size: 2.5rem;
-            text-shadow: 0 0 10px var(--text-color);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(to right, #fff, #a3a3a3);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .title {
+            font-size: 1.1rem;
+            color: var(--secondary-color);
+            margin-bottom: 1.2rem;
+        }
+        .about-text {
+            margin-bottom: 1.2rem;
+        }
+        .social-links {
+            margin-bottom: 0;
+        }
+        @media (max-width: 768px) {
+            .profile-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1.2rem;
+            }
+            .profile {
+                width: 100px;
+                height: 100px;
+            }
+            .name {
+                font-size: 2rem;
+            }
+        }
+
+        .section {
+            margin: 2.5rem 0;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            display: inline-block;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 40px;
+            height: 4px;
+            background: var(--accent-color);
+            border-radius: 2px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+        }
+
+        .card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            color: var(--accent-color);
+        }
+
+        .card h3 a {
+            color: var(--text-color);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .card h3 a:hover {
+            color: var(--accent-hover);
+            text-decoration: underline;
+        }
+
+        .card p {
+            color: var(--secondary-color);
+            font-size: 0.95rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 3rem;
+        }
+
+        .social-link {
+            color: var(--text-color);
+            text-decoration: none;
+            padding: 0.75rem 1.5rem;
+            border: 1px solid var(--card-border);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6em;
+        }
+
+        .social-link:hover {
+            background: var(--accent-color);
+            color: #fff;
+            border-color: var(--accent-color);
+            transform: translateY(-2px);
+        }
+
+        .social-link:hover svg path {
+            fill: #fff !important;
         }
 
         footer {
             text-align: center;
-            width: 100%;
-            padding-bottom: 20px;
+            padding: 3rem 0;
+            color: var(--secondary-color);
+            font-size: 0.9rem;
         }
 
-        footer > a {
+        footer a {
+            color: var(--accent-color);
             text-decoration: none;
-            position: relative;
         }
 
-        footer > a:hover {
+        footer a:hover {
             text-decoration: underline;
         }
 
-        div.slogan {
-            padding-top: 20px;
-            font-size: 1.2rem;
+        a {
             color: var(--accent-color);
+            text-decoration: none;
+            transition: color 0.2s;
         }
 
-        .terminal {
-            background-color: rgba(0, 0, 0, 0.7);
-            border: 2px solid var(--text-color);
-            padding: 20px;
-            margin-top: 20px;
-            white-space: pre-wrap;
-        }
-
-        .cursor {
-            animation: blink 1s step-end infinite;
-        }
-
-        @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0; }
-        }
-
-        @media (max-width: 767px) {
-            .container {
-                padding: 10px;
-            }
-            
-            h1.name {
-                font-size: 2rem;
-            }
-            
-            .terminal {
-                font-size: 0.9rem;
-            }
+        a:hover {
+            color: var(--accent-hover);
+            text-decoration: underline;
         }
     </style>
     <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -159,46 +242,86 @@
 </head>
 
 <body>
-    <div class="container-wrapper">
+    <div class="hero">
         <div class="container">
-            <h1 class="name">$ whoami</h1>
-            <div>
-                <img class="profile" src="images/profile.jpg" alt="Max Schmitt">
+            <div class="profile-header">
+                <div class="profile-header-img">
+                    <img class="profile" src="images/profile.jpg" alt="Max Schmitt">
+                </div>
+                <div class="profile-header-content">
+                    <h1 class="name">Max Schmitt</h1>
+                    <p class="title">Open Source enthusiast, security researcher, full stack web developer</p>
+                    <div class="about-text">
+                        I'm a software engineer passionate about open source, security, and web development. I specialize in TypeScript, Go, Python, JavaScript, and .NET, with expertise in Git, Docker, Kubernetes, and GitHub Actions. For the past four years, I've been a core maintainer and major contributor to <a href="https://playwright.dev" target="_blank" rel="noopener noreferrer" style="font-weight:600; color:#7aa2f7;">Microsoft Playwright</a>, one of the world's leading browser automation frameworks.
+                    </div>
+                    <div class="social-links">
+                        <a href="https://github.com/mxschmitt" class="social-link" target="_blank" rel="noopener noreferrer">
+                          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.387.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.415-4.042-1.415-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.084-.729.084-.729 1.205.084 1.84 1.236 1.84 1.236 1.07 1.834 2.809 1.304 3.495.997.108-.775.418-1.305.762-1.605-2.665-.305-5.466-1.334-5.466-5.931 0-1.31.469-2.381 1.236-3.221-.124-.303-.535-1.523.117-3.176 0 0 1.008-.322 3.301 1.23a11.52 11.52 0 0 1 3.003-.404c1.018.005 2.045.138 3.003.404 2.291-1.553 3.297-1.23 3.297-1.23.653 1.653.242 2.873.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.803 5.624-5.475 5.921.43.372.823 1.102.823 2.222 0 1.606-.014 2.898-.014 3.293 0 .322.216.694.825.576C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" fill="#7aa2f7"/></svg>
+                          GitHub
+                        </a>
+                        <a href="https://www.linkedin.com/in/max-schmitt/" class="social-link" target="_blank" rel="noopener noreferrer">
+                          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.761 0 5-2.239 5-5v-14c0-2.761-2.239-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.268c-.966 0-1.75-.784-1.75-1.75s.784-1.75 1.75-1.75 1.75.784 1.75 1.75-.784 1.75-1.75 1.75zm15.5 11.268h-3v-5.604c0-1.337-.026-3.063-1.868-3.063-1.868 0-2.154 1.459-2.154 2.967v5.7h-3v-10h2.881v1.367h.041c.401-.761 1.379-1.563 2.841-1.563 3.039 0 3.6 2.001 3.6 4.601v5.595z" fill="#7aa2f7"/></svg>
+                          LinkedIn
+                        </a>
+                        <a href="https://twitter.com/mx_schmitt" class="social-link" target="_blank" rel="noopener noreferrer">
+                          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M24 4.557a9.93 9.93 0 0 1-2.828.775 4.932 4.932 0 0 0 2.165-2.724c-.951.564-2.005.974-3.127 1.195a4.92 4.92 0 0 0-8.384 4.482c-4.086-.205-7.713-2.164-10.141-5.144a4.822 4.822 0 0 0-.664 2.475c0 1.708.87 3.216 2.188 4.099a4.904 4.904 0 0 1-2.229-.616c-.054 2.281 1.581 4.415 3.949 4.89a4.936 4.936 0 0 1-2.224.084c.627 1.956 2.444 3.377 4.6 3.417a9.867 9.867 0 0 1-6.102 2.104c-.396 0-.787-.023-1.175-.069a13.945 13.945 0 0 0 7.548 2.212c9.057 0 14.009-7.513 14.009-14.009 0-.213-.005-.425-.014-.636a10.012 10.012 0 0 0 2.457-2.548z" fill="#7aa2f7"/></svg>
+                          Twitter
+                        </a>
+                        <a href="mailto:max@schmitt.mx" class="social-link" target="_blank" rel="noopener noreferrer">
+                          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 13.065L.8 6.2V18a2 2 0 0 0 2 2h18.4a2 2 0 0 0 2-2V6.2l-11.2 6.865zm10.4-9.065H1.6a2 2 0 0 0-1.6 1.6l12 7.36 12-7.36a2 2 0 0 0-1.6-1.6z" fill="#7aa2f7"/></svg>
+                          Email
+                        </a>
+                    </div>
+                </div>
             </div>
-            <div class="terminal">
-[max@schmitt ~]$ cat bio.txt
-Name: Max Schmitt
-Occupation: Open Source enthusiast, security researcher, full stack web developer
-Skills: 
-  - Coding: TypeScript, Go, Python, JavaScript, .NET
-  - Tools: Git, Docker, Kubernetes, GitHub Actions
-  - Security: Penetration testing, vulnerability analysis
-  - Web: React, Node.js, GraphQL, End-to-end testing
 
-[max@schmitt ~]$ ls -l connections/
-total 4
-lrwxrwxrwx 1 max dev 23 Oct  8 12:34 linkedin -> <a href="https://www.linkedin.com/in/max-schmitt/">https://www.linkedin.com/in/max-schmitt/</a>
-lrwxrwxrwx 1 max dev 28 Oct  8 12:34 twitter -> <a href="https://twitter.com/mx_schmitt">https://twitter.com/mx_schmitt</a>
-lrwxrwxrwx 1 max dev 25 Oct  8 12:34 github -> <a href="https://github.com/mxschmitt">https://github.com/mxschmitt</a>
-lrwxrwxrwx 1 max dev 17 Oct  8 12:34 email -> <a href="mailto:max@schmitt.mx">mailto:max@schmitt.mx</a>
-
-[max@schmitt ~]$ echo "Feel free to connect!"
-Feel free to connect!
-
-[max@schmitt ~]$ <span class="cursor">_</span>
+            <div class="section">
+                <h2 class="section-title">Recent Projects</h2>
+                <div class="grid">
+                    <div class="card">
+                        <h3><a href="https://github.com/mxschmitt/action-tmate" target="_blank" rel="noopener noreferrer">action-tmate</a></h3>
+                        <p>3k stars on GitHub: Debug your GitHub Actions via SSH by using tmate to get access to the runner system itself.</p>
+                    </div>
+                    <div class="card">
+                        <h3><a href="https://github.com/playwright-community/playwright-go" target="_blank" rel="noopener noreferrer">playwright-go</a></h3>
+                        <p>2.7k stars on GitHub: Playwright for Go, a browser automation library to control Chromium, Firefox and WebKit with a single API.</p>
+                    </div>
+                    <div class="card">
+                        <h3><a href="https://github.com/mxschmitt/try-playwright" target="_blank" rel="noopener noreferrer">Try Playwright</a></h3>
+                        <p>Try Playwright lets you execute and share Playwright scripts in your browser to get started with Playwright.</p>
+                    </div>
+                </div>
             </div>
-            <div>
-                <a href="https://www.linkedin.com/in/max-schmitt/" class="button">$ ssh linkedin</a>
-                <a href="https://twitter.com/mx_schmitt" class="button">$ ssh twitter</a>
-                <a href="https://github.com/mxschmitt" class="button">$ ssh github</a>
-                <a href="mailto:max@schmitt.mx" class="button">$ mail max</a>
+
+            <div class="section">
+                <h2 class="section-title">Conference Talks</h2>
+                <div class="grid">
+                    <div class="card">
+                        <h3><a href="https://www.youtube.com/watch?v=zyOJfGtJ3Rw" target="_blank" rel="noopener noreferrer">Advanced Playwright Debugging and Test Resilience</a></h3>
+                        <p>Microsoft | Build 2025</p>
+                    </div>
+                    <div class="card">
+                        <h3><a href="https://www.youtube.com/watch?v=ktzbeSXv52M" target="_blank" rel="noopener noreferrer">Playwright in Action: From Setup to Best Practices</a></h3>
+                        <p>Microsoft | JavaScript Dev Day 2024</p>
+                    </div>
+                    <div class="card">
+                        <h3><a href="https://www.youtube.com/watch?v=1yaqKDHhktI&t=164s" target="_blank" rel="noopener noreferrer">Test automation with Playwright</a></h3>
+                        <p>Microsoft | Build 2023</p>
+                    </div>
+                    <div class="card">
+                        <h3><a href="https://www.youtube.com/watch?v=yY-5EkWktxs" target="_blank" rel="noopener noreferrer">Making Testing Fun with Playwright</a></h3>
+                        <p>LambdaTest | Testμ 2023</p>
+                    </div>
+                    <div class="card">
+                        <h3><a href="https://www.youtube.com/watch?v=VavFU2vLnT0" target="_blank" rel="noopener noreferrer">Testing Blazor Applications with Playwright</a></h3>
+                        <p>Microsoft | .NET Conf 2022</p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
     <footer>
-        <a href="https://github.com/mxschmitt/connect-to-me">
-            $ git clone https://github.com/mxschmitt/connect-to-me.git
-        </a>
+        <a href="https://github.com/mxschmitt/connect-to-me" target="_blank" rel="noopener noreferrer">View source on GitHub</a>
     </footer>
     <script>
         window.dataLayer = window.dataLayer || [];
